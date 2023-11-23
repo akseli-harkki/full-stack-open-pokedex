@@ -32,11 +32,7 @@ jobs:
           wait-on: http://localhost:5000
       - name: deploy
         if: ${{ github.event_name == 'push' }}
-        run: curl ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-      - name: commit messages
-        env:
-          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-        run: echo "$COMMIT_MESSAGES"  
+        run: curl ${{ secrets.RENDER_DEPLOY_HOOK_URL }} 
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04

@@ -1,13 +1,9 @@
 name: URL health check
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches: [master]
-    types: [opened, synchronize]
-
+  schedule:
+    - cron: '15 * * * *'
+    
 jobs: 
   healthCheck:
     runs-on: ubuntu-20.04

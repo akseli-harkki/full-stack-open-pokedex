@@ -32,7 +32,7 @@ jobs:
         with:
             severity: error
             text: Build of Pokedex failed!
-            description: commit ${{ github.event.commits[0].id }} 
+            description: commit ${{ github.event.commits[0].url }} by ${{ github.event.commits[0].author.username }} broke the build.
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Test
         run: npm run test

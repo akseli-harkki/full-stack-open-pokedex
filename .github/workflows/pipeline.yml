@@ -45,7 +45,8 @@ jobs:
         if: success()
         with:
             severity: info
-            details: Successful deployment of Pokedex!
+            description: to https://axunpokedex.onrender.com/ by ${{ github.event.pusher.name }}
+            text: Successful deployment of Pokedex!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}  
   tag_release:
     needs: [simple_deployment_pipeline]
